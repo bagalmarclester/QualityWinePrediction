@@ -9,7 +9,7 @@ MODEL_PATH = os.path.join(BASE_DIR, "wine_quality_best_model.pkl")
 
 model = joblib.load(MODEL_PATH)
 
-st.title("🍷 Wine Quality Prediction App")
+st.title("Wine Quality Prediction")
 st.write("Enter the chemical attributes of the wine sample to predict whether it is **Good (≥7)** or **Not Good (<7)**.")
 
 # Define input fields
