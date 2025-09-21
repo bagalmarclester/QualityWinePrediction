@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
 
 # Load the saved best model
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
