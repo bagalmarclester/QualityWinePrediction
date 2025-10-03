@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 import os
 
-# Load the saved best model
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "wine_quality_best_model.pkl")
 
@@ -12,7 +12,7 @@ model = joblib.load(MODEL_PATH)
 st.title("Wine Quality Prediction")
 st.write("Enter the chemical attributes of the wine sample to predict whether it is **Good (≥7)** or **Not Good (<7)**.")
 
-# Define input fields
+
 fixed_acidity = st.number_input("Fixed Acidity", min_value=0.0, step=0.1)
 volatile_acidity = st.number_input("Volatile Acidity", min_value=0.0, step=0.01)
 citric_acid = st.number_input("Citric Acid", min_value=0.0, step=0.01)
@@ -25,9 +25,9 @@ pH = st.number_input("pH", min_value=0.0, step=0.01)
 sulphates = st.number_input("Sulphates", min_value=0.0, step=0.01)
 alcohol = st.number_input("Alcohol", min_value=0.0, step=0.1)
 
-# Predict button
+
 if st.button("Predict Wine Quality"):
-    # Put inputs into a DataFrame (must match training columns)
+  
     input_data = pd.DataFrame([{
         "fixed acidity": fixed_acidity,
         "volatile acidity": volatile_acidity,
@@ -42,10 +42,10 @@ if st.button("Predict Wine Quality"):
         "alcohol": alcohol
     }])
 
-    # Predict probability
+
     proba = model.predict_proba(input_data)[0,1]
 
-    # Apply your chosen threshold (default 0.4)
+
     threshold = 0.4
     prediction = 1 if proba >= threshold else 0
 
